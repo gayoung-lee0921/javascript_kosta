@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anchor 객체</title>
+</head>
+<body>
+    <a href="#MFC">MFC 시스템 프로그래밍</a>
+    <a href="#API">win32 API 시스템 프로그래밍</a>
+    <a href="#C++">C++ 시스템 프로그래밍</a>
+    <hr>
+    <a name="MFC">MFC 시스템 프로그래밍</a>
+    <img src="mfc.jpg" alt=""><br>
+    <a name="API">win32 API 시스템 프로그래밍</a>
+    <img src="api.jpg" alt=""><br>
+    <a name="C++">C++ 시스템 프로그래밍</a>
+    <img src="c++.jpg" alt=""><br>
+    <script>
+        document.write("anchor의 개수: "+ document.anchors.length + "</br>")
+        
+        document.write("anchor의 이름: "+ document.anchors[0].name + "</br>")
+        document.write("anchor의 이름: "+ document.anchors[1].name + "</br>")
+        document.write("anchor의 이름: "+ document.anchors[2].name + "</br>")
+        for(var i=0;i<document.anchors.length;i++){
+            document.write((i+1)+"번째 anchor의 이름: "+ document.anchors[i].name + "</br>")
+        }
+    </script>
+</body>
+</html>

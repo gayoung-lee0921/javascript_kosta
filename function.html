@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+<body>
+    <script>
+        // return 값이 없기 때문에 return 타입 함수
+        function myInfo(name,age){
+            document.write("이름 : "+ name +"<br/>");
+            document.write("나이 : "+ age +"<br/>");
+        }
+        function plus(val1,val2){
+            // document.write("합은 : "+(val1+val2)+"<br/>");
+            return (val1+val2); //plus 함수 안에서 출력하는 것이 아닌 결과를 던지면서(=리턴) 끝낸다는 의미
+        }
+
+        var myname = '이가영';
+        var myage = 27;
+        
+        // myInfo(myname,myage);
+        var result=plus(20,10); // 함수 plus에서 바로 출력하지 않기 때문에 변수 result에서 받아줌
+        document.write("두 수의 합은 : " + result + "<br/>");
+        document.write('<div style="color:red">'+result+'</div>');
+        document.write('<div style="color:blue">'+result+'</div>');
+    </script>
+</body>
+</html>

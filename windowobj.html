@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window 객체</title>
+</head>
+<body>
+    <!-- <button onclick="newOpen()">새 윈도우 열기</button>
+    <button onclick="winClose()">윈도우 닫기</button> -->
+    <button onclick="timestart()">시한 폭탄 설정</button>
+    <button onclick="timestop()">시한 폭탄 해제</button>
+
+    <script>
+        // var newWin;
+        // function newOpen(){
+        //     newWin = window.open('test.html','','width=600, height=300');
+        // }
+        // function winClose(){
+        //     newWin.close(); // test.html 창이 닫힘
+        //     // close(); windowobj.html 창이 닫힘
+        // } 
+        var timeId;
+        function timestart(){
+            alert('5초후에 폭발합니다.')
+            timeId = window.setTimeout(function(){ // timeId에 setTimeout의 객체가 들어감
+                alert('와장창')
+            },5000) // 5초 뒤에 익명함수 실행
+        }
+        function timestop(){
+            window.clearTimeout(timeId)
+            alert('폭탄이 해제되었습니다.')
+        }
+    </script>
+</body>
+</html>

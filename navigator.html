@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navigator  객체</title>
+</head>
+<body>
+    <script>
+        // document.write("<p>"+'appCodeName :'+navigator.appCodeName+"</p>")
+        // document.write("<p>"+'appName :'+navigator.appName+"</p>")
+        // document.write("<p>"+'appVersion :'+navigator.appVersion+"</p>")
+        // document.write("<p>"+'platform :'+navigator.platform+"</p>")
+        // document.write("<p>"+'userAgent :'+navigator.userAgent+"</p>")
+        
+        // for in 문으로 객체 반복문
+        // for(var name in navigator){
+        //     //name엔 key값, navigator[name]에서 value값 확인
+        //     document.write(name + ":"+ navigator[name] + "<br/>") 
+        // }
+
+        var agent = navigator.userAgent.toLocaleLowerCase();
+        if(agent.indexOf('chrome') !=-1){
+            document.write('<h1>'+"크롬 브라우저를 지원합니다."+"</h1>");
+        } else{
+            document.write('<h1>'+"크롬 브라우저를 지원하지 않습니다."+"</h1>");
+        }
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머</title>
+    <style>
+        .timer{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    1. 카운트 시작 버튼 누름
+    2. 카운트가 1씩 증가함(1초마다 초가 늘어나서)
+    3. count가 60이 되면 분으로 옮겨감
+     -->
+    <script>
+        var timeID;
+        var second=0;
+        var minute=0;
+        function timestart(){
+            timeID=window.setInterval(function(){
+                document.getElementById('second').innerHTML = second++;
+                if(second > 59){
+                    second = second/60;
+                    minute = minute+second;
+                    document.getElementById('minute').innerHTML=minute;
+                    second = 0;
+                }
+            },1000)
+        }
+        function timestop(){
+            window.clearInterval(timeID)
+        }
+        
+    </script>
+    <button onclick="timestart()">카운트 시작</button>
+    <button onclick="timestop()">카운트 정지</button><p></p>
+    <div class="timer">
+        <p>
+            <span id="minute"></span>
+            분
+        </p>
+        <p>
+            <span id="second"></span>
+            초
+        </p>
+    </div>
+</body>
+</html>

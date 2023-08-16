@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document 객체</title>
+</head>
+<body>
+    <script>
+        function c_bg(){
+            var colval = document.getElementById('colorVal')
+            document.bgColor = colval.value;
+        }
+        function c_text(){
+            var colval = document.getElementById('colorVal')
+            document.fgColor = colval.value;
+        }
+        function c_title()
+        {
+           var docval = document.getElementById('titleVal');
+           document.title = docval.value;
+        } 
+        function p_info()
+        {
+            var docinfo = "최근 바뀐 날짜 : " + document.lastModified + "\n\n" 
+            + "현재 url: "+document.URL + "\n\n"
+            + "문서 제목: "+document.title + "\n\n"
+            alert(docinfo);
+        } 
+        
+    </script>
+    <h1>배경색과 글자색을 변경합니다.</h1>
+    <label for="">색상입력:<input type="text" id="colorVal" value=""></label>
+    <p></p>
+    <button onclick="c_bg()">배경색 변경하기</button>
+    <button onclick="c_text()">글자색 변경하기</button>
+    <p></p>
+    <label for="">타이틀 입력:<input type="text" id="titleVal" value="새문서"></label>
+    <p></p>
+    <button onclick="c_title()">타이틀 변경하기</button>
+    <button onclick="p_info()">문서정보 출력하기</button>
+
+</body>
+</html>

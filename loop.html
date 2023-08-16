@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문</title>
+</head>
+<body>
+    <script>
+        // do while문으로 작성
+        // var i =0;
+        // do
+        // {
+        //     document.write("즐겁다<br/>");
+        //     i++;
+        // }while(i<5);
+
+        /*for문으로 작성
+        for(var a=0;a<5;a++)
+        {
+            document.write("즐겁다<br/>");
+        }*/
+    </script>
+    <h1>Array</h1>
+    <script>
+        // arr이 현재 정적메모리인데 동적으로 요소를 추가해보자
+        var arr = ["자바스크립트", "c언어","파이썬"];
+        for(var i =0;i<arr.length;i++){
+            document.write(arr[i]+"<br/>");
+        }
+        document.write("arr의 길이 : "+arr.length);
+    </script>
+    <h1>Add</h1>
+    <script>
+        arr.push('c# .NET');
+        arr.push('MySQL');
+        document.write('arr[3] = '+arr[3]+'<br/>');
+        document.write('arr[4] = '+arr[4]+'<br/>');
+    </script>
+    <h1>전체 출력</h1>
+    <script>
+        for(var i =0;i<arr.length;i++){
+            document.write('<li>'+arr[i]+'</li>');
+        }
+        var list = document.querySelectorAll('li') // 생성된 li 모두를 할당
+        for(var i=0;i<list.length;i++){
+            console.log(list[i]);
+        }
+    </script>
+</body>
+</html>

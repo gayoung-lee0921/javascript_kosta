@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>element</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <style>
+        p{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+   <p> i would like to say : </p>
+   <script>
+    //$('p').append("<strong>Hello<strong>") p태그 안에 strong 태그가 생김
+    $('p').after("<strong>Hello<strong>")
+   </script>
+</body>
+</html>

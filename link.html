@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>링크 객체</title>
+</head>
+<style>
+    a{
+        cursor: pointer;
+    }
+</style>
+<body>
+    <a href="https://www.subway.co.kr/" target="_blank">써브웨이</a><br>
+    <a href="https://www.gong-cha.co.kr/brand/" target="_blank">공차</a><br>
+    <hr>
+    <script>
+        for(var i=0;i<document.links.length;i++)
+        {
+            document.write(document.links[i].href+"<br/>") 
+            document.write(document.links[i].pathname+"<br/>") 
+            document.write(document.links[i].target+"<br/>") 
+
+        }
+
+    </script>
+</body>
+</html>

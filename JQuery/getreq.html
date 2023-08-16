@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET 요청</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <img src="" alt="">
+    <script>
+        // $.ajax({
+        //    url: "https://jamsuham75.github.io/image/wraith.png",
+        //    method: "get",
+        //    // 서버 연결 성공
+        //    success: function(response){
+        //         // 콘솔로 찍어보는거라 이미지는 꺠짐
+        //         console.log('성공',response)
+        //    },
+        //    // 서버 연결 실패
+        //    error : function(error){
+        //     console.log('실패')
+        //     }
+
+        // })
+        
+        //json
+        $.ajax({
+           url: "https://raw.githubusercontent.com/jamsuham75/image/main/test.json",
+           method: "get",
+           success: function(response){
+                console.log('성공',response)
+           },
+           error : function(error){
+            console.log('실패')
+            }
+
+        })
+    </script>
+</body>
+</html>

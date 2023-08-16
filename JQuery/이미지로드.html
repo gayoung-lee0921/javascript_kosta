@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Image_230816</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <canvas id = "mycanvas" width = "600" height = "400"></canvas>
+
+    <script>
+        var canvas = document.getElementById("mycanvas");
+        var ctx = canvas.getContext('2d');
+        var isDrawing = false;
+
+        canvas.addEventListener('mousedown',startDrawing);
+        canvas.addEventListener('mousemove',draw);
+        canvas.addEventListener('mouseup',stopDrawing);
+
+        document.addEventListener('keydown',function(e){
+            var myKey = e.key;
+            if(myKey =='r'){
+                ctx.strokeStyle = 'rgb(255,0,0)'; 
+            } else if(myKey=='g'){
+                ctx.strokeStyle = 'rgb(0,255,0)'; 
+            } else if(myKey=='b'){
+                ctx.strokeStyle = 'rgb(0,0,255)'; 
+            }
+            console.log('key = ',+ myKey)
+
+        })
+       
+        function startDrawing(e){
+            isDrawing = true
+            ctx.beginPath()
+            // e.clientX와 e.clientY는 내가 찍은 좌표
+            ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+        }
+        function draw(e){
+            // 마우스를 눌렀을 때만 그리도록 하기 위함
+            if(isDrawing == false){
+                return;
+            }
+            ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop )
+            ctx.stroke();
+        }
+
+        function stopDrawing(e){
+            isDrawing = false
+            ctx.closePath();
+        }
+
+        var img = new Image();
+        img.src = '../api.jpg'
+
+        img.onload = function(){
+            ctx.drawImage(img,0,0,canvas.width,canvas.height)
+        }
+
+    </script>
+</body>
+</html>

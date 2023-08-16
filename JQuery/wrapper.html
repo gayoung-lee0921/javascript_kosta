@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wrapper</title>
+</head>
+<body>
+    <script>
+        // window.onload는 함수포인터라 function 함수의 주소값이 들어감
+        // 자바스크립트로 적어보기
+        window.onload = function()
+        {
+            console.log('html이 준비되면 실행')
+            document.getElementById('pp').style.color = 'pink'
+        }
+        function fn_click(color)
+        {
+            document.getElementById('pp').style.color = color
+        }
+    </script>
+
+    <p id="pp">hello word : javascript</p>
+    <button id="red" onclick="javascript:fn_click('red')">red</button>
+    <button id="blue" onclick="javascript:fn_click('blue')">blue</button>
+</body>
+</html>

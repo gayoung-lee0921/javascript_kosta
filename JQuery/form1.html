@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <p>
+        <input type="text">
+        <span></span>
+    </p>
+    <script>
+        // 포커스 됐을 때
+        $('input').focus(function(){
+            $(this).next('span').html('focus')
+        })
+        // 포커스를 잃었을 때
+        .blur(function(){
+            $(this).next('span').html('blur')
+
+        })
+        .change(function(e){
+            console.log($(e.target).val())
+        })
+        // 커서로 input안의 내용을 전체선택했을 떄
+        .select(function(){
+            $(this).next('span').html('select')
+
+        })
+    </script>
+</body>
+</html>

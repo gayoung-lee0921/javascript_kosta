@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document 객체의 메소드</title>
+</head>
+<body>
+    <script>
+        var newIn;
+        function newOpen()
+        {
+            newIn = window.open('','','width = 350, height = 600'); // 창을 오픈
+            newIn.document.open() // 내용을 오픈
+            newIn.document.write("<h1><center>베스트 셀러</center></h1>")
+            newIn.document.write(`<img src = "book.jpg">`);
+            newIn.document.close(); // 수정이 끝나면 close 해줘야 됨, 안에 있는 요소가 없어짐
+        }
+        function newClear()
+        {
+            newIn.document.open();
+            newIn.document.clear();
+            newIn.document.close()
+        }
+    </script>
+    <h1>새 문서 직접 만들기</h1>
+    <button onclick="newOpen()">새 문서 열기</button>
+    <button onclick="newClear()">문서 지우기</button>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 테스트</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <script>
+        //ready라는 이벤트가 발생되면 콜백함수가 실행
+        $(document).ready(function(){
+            $('#msgid').html("This is Hello World by JQuery")
+            .css('background','yellow')
+       })
+    </script>
+    This is Hello World by HTML
+    <div id="msgid"></div>
+</body>
+</html>

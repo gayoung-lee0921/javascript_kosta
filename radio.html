@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라디오 버튼</title>
+</head>
+<body>
+    <form name="test">
+        <h3>메모리의 주소값을 저장하는 변수를 무엇이라고 하는가</h3>
+        <input type="radio" name="exam" value="1" onclick="result()">1 약수터<p>
+        <input type="radio" name="exam" value="2" onclick="result()">2 화개장터<p>
+        <input type="radio" name="exam" value="3" onclick="result()">3 포인터<p>
+        <input type="radio" name="exam" value="4" onclick="result()">4 놀이터<p>
+    </form>
+    <script>
+        function result(){
+            if(document.test.exam[2].checked==true){
+                alert('정답')
+            } else{
+                alert('틀렸다 이놈아')
+            }
+        }
+    </script>
+</body>
+</html>

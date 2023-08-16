@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션 그리기_230816</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <canvas id = "mycanvas" width = "600" height = "400"></canvas>
+
+    <script>
+        var canvas = document.getElementById("mycanvas");
+        var ctx = canvas.getContext('2d');
+        
+        var x = 0;
+        // function draw(){
+        //     // 캔버스 지우기
+        //     ctx.clearRect(0,0,canvas.width, canvas.height)
+        //     ctx.fillStyle = 'blue'
+        //     ctx.fillRect(x,150,50,50)
+        //     x = x+2
+        //     // 캔버스 영역만큼 함수를 반복시킴(재귀함수)
+        //     requestAnimationFrame(draw)
+        // }
+        // draw();
+        // 글씨 그려주기
+        ctx.font = '50px Arial'
+        ctx.fillStyle = 'green'
+        ctx.fillText('hello canvas!!',50,100)
+    </script>
+</body>
+</html>

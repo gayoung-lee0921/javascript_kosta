@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 객체</title>
+</head>
+<body>
+    <h1><center>베스트셀러</center></h1><hr>
+
+    <img src="mfc.jpg" alt="">
+    <img src="api.jpg" alt="">
+    <img src="c++.jpg" alt=""><hr>
+    <script>
+        document.write("이미지의 갯수: "+document.images.length+"</br>")
+        // width, height, border 할당
+        for(var i=0;i<document.images.length;i++){
+            document.images[i].width = '210';
+            document.images[i].height = '300';
+            document.images[i].border = '5';
+        }
+        //출력
+        for(var i=0;i<document.images.length;i++){
+            document.write(document.images[i].width+"</br>")
+            document.write(document.images[i].height+"</br>")
+        }
+    </script>
+</body>
+</html>
