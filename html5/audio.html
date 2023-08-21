@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오디오</title>
+</head>
+<body>
+    <audio id="music" src="../multimedia/SleepAway.mp3" type="audio/mp3"   ></audio>
+    <button onclick="musicPlay()">재생</button>
+    <button onclick="musicPause()">멈춤</button>
+    <div id="time">
+
+    </div>
+    <script>
+        var music = document.getElementById('music')
+        function musicPlay(){
+            music.play(); // audio 태그에서 제공하는 메소드
+        }
+        function musicPause(){
+            music.pause();
+        }
+        music.addEventListener('timeupdate',function(){
+            document.getElementById('time').innerHTML = Math.floor(music.currentTime)+"/" + Math.floor(music.duration)+"초";
+        },false); // false는 
+    </script>
+    <!-- <audio controls>
+        <source src="../multimedia/SleepAway.mp3" type="audio/mpeg">
+        오디오 엘리먼트
+    </audio> -->
+</body>
+</html>
