@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>openweather api를 이용한 실습</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <!-- 
+    open api 키 값 : a259681b72bbd883468801d517c7e385
+     -->
+</head>
+<body>
+    <h1>현재 날씨 정보</h1>
+    <p id="weather"></p>
+    <div>
+    </div>
+    <script>
+        function myPosition(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(성공시콜백);
+            }
+        }
+        function 성공시콜백(position){
+            console.log(position)
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            document.getElementById('weather').innerHTML
+            = "위도 : " + lat + " 경도 : " + lng
+            getWeather(lat,lng)
+        }
+        function getWeather(lat, lng){
+            var api = "a259681b72bbd883468801d517c7e385";
+            var apiurl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${api}`;
+            fetch(apiurl)
+            // 서버로 부터 응답을 받았을 때 콜백함수가 실행
+            .then(function(response){
+                console.log(response)
+                return response.json()
+            })
+            // json형식으로 변환이 잘 됐을 때 콜백함수가 실행
+            .then(function(data){
+                console.log(data)
+                var weatherDescription = data.weather[0].description
+                var temp = data.main["temp"]
+                var cityName = data.name;
+
+                var weatherInfo = `
+                도시 : ${cityName}<br>
+                날씨 : ${weatherDescription}<br>
+                온도 : ${temp}˚
+                `
+                document.getElementById('weather').innerHTML = weatherInfo
+                
+            })
+            .catch(function(error){
+                console.error("날씨 정보를 가져오는 중 오류 발생:",error)
+                document.getElementById('weather').innerHTML = "날씨 정보를 못 가져옴"
+            })
+        }
+
+
+        myPosition()
+        
+    </script>
+</body>
+</html>
