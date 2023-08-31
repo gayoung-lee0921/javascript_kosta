@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>openweather api 사용</title>
+    <!-- a259681b72bbd883468801d517c7e385 -->
+</head>
+<body>
+    <p class="city"></p>
+    <p class="weather"></p>
+    <p class="temp"></p>
+    <script>
+        const apiKey = "a259681b72bbd883468801d517c7e385"
+        const city = document.querySelector('.city')
+        const weather = document.querySelector('.weather')
+        const temp = document.querySelector('.temp')
+        if('geolocation' in navigator){
+            //console.log(navigator.geolocation)
+            navigator.geolocation.getCurrentPosition(onGeoOk,onGeoError)
+        } else{
+            console.log('위치 정보 사용 불가능')
+        }
+        function onGeoOk(position){
+            //console.log(position)
+           let lat = position.coords.latitude
+           let lon = position.coords.longitude
+           //console.log("경도: "+lon+"위도: "+lat)
+           fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`)
+           .then((response)=>response.json())
+           .then(function(data){
+            //console.log(data)
+            city.textContent = "도시 : "+data.name
+            weather.textContent = "현재 날씨 : "+data.weather[0]["main"]
+            //temp = Math.floor(parseInt(data.main["temp"])-273.15)
+            let tempchange =  Math.floor(parseInt(data.main["temp"])-273.15)
+            temp.textContent = `현재 온도 : ${tempchange}˚C`
+           })
+           .catch(error=>{
+            error.Message
+           })
+        }
+        function onGeoError(error){
+            console.log(error.Message)
+        }
+        
+    </script>
+</body>
+</html>
