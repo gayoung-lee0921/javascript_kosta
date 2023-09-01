@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹워커로 계산기 구현하기</title>
+</head>
+<body>
+    <input type="number" id="inputnum">
+    <button id="cal">계산기</button>
+    <p id="result"></p>
+    <script>
+        const inputnum = document.querySelector('#inputnum')
+        const cal = document.querySelector('#cal')
+        const result = document.querySelector('#result')
+
+        cal.addEventListener('click',function(){
+            if(window.Worker){
+                myworker = new Worker("calc.js")
+                myworker.postMessage(inputnum.value)
+                myworker.onmessage = function(event){
+                    result.textContent = event.data
+                }
+                myworker.onerror = function(error){
+                    result.textContent = error.message
+                    result.textContent += error.filename
+                    result.textContent += error.lineno
+                }
+            } else{
+                console.log('워커X')
+            }
+        })
+
+    </script>
+</body>
+</html>

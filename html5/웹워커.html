@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹워커</title>
+</head>
+<body>
+    <script>
+        // 워커 객체 지원 유무 판별 함수
+        function Available(){
+            if(window.Worker){
+                document.getElementById('result').textContent = "웝 워커 지원OO"
+            } else{
+                document.getElementById('result').textContent = "웝 워커 지원XX"
+            }
+        }
+        function stopOperation()
+        {
+            const endTime =  new Date().getTime() + 5000;
+            while(new Date().getTime()<endTime){;}
+            document.getElementById('result').innerHTML = "일어날 시간입니다~!!"
+        }
+        function awake()
+        {
+            alert('확마, 일어나라~~~~~~~~~~~');
+        }
+        function applyWorker()
+        {
+            // Worker의 지원 유무 물어봄
+            if(window.Worker)
+            {
+                worker = new Worker("worker.js");
+                worker.postMessage("미네랄을 캐렴");
+                // 상대방이 나한테 메시지를 보낸 경우
+                worker.onmessage = function(event){
+                    document.getElementById('result').innerHTML = event.data;
+                }
+                worker.onerror = function(error){
+                    document.getElementById('result').innerHTML ="메시지 : "+ error.message +"</br>"                    
+                    document.getElementById('result').innerHTML +="파일이름 : "+ error.filename +"</br>"                    
+                    document.getElementById('result').innerHTML +="라인 넘버 : "+ error.lineno +"</br>"                    
+                }
+            } 
+            else
+            {
+                document.getElementById('result').textContent = "웹 워커 지원XX"
+            }
+        }
+
+    </script>
+    <button onclick="Available()">지원여부</button> <p></p>
+    <button onclick="stopOperation()">워커 미적용 수행</button>
+    <button onclick="applyWorker()">워커 적용 수행</button>
+    <button onclick="awake()">깨어나는 시간</button>
+    <div id="result"></div>
+</body>
+</html>
