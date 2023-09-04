@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>잠수함 게임</title>
+    <style>
+        body{
+            background-color: #111;
+            margin: 0;
+        }
+        canvas{
+            background-color: #0099FF;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1920" height="800"></canvas>
+    <script>
+        var canvas;
+        var ctx;
+        var canvasBuffer;
+        var burrerCtx;
+        var threadSpeed=16;
+
+        // 잠수함
+        var submarine;
+        var sx, sy, sw = 60, sh = 35; // sw, sh는 60X35 픽셀
+
+        // 배경 이미지
+        var background;
+
+        // 장애물
+        var enemy = new Array()
+        var enemyColor = ['red','blue','white']
+        var ellapse = 10;
+
+        // 타이머 인스턴스
+        var loopInstance;
+
+        // 게임의 상태
+        var STATE_START = false;
+        var STATE_GAMEOVER = false;
+
+        // 키 상태
+        var keyPressed = [];
+
+        // 경과 시간
+        var oldTime;
+        var startTime;
+        var totalTime;
+
+        // 이벤트 등록
+        window.addEventListener('load', initialize,false)
+        function initialize(){
+            canvas = document.getElementById('canvas')
+            // canvas element 가져오기 실패한 경우
+            if(canvas==null || canvas.getContext == null) return;
+            // 더블 버퍼링 : 그래픽을 만드는 데 부담을 덜기위해(성능향상)
+            // 그리기 준비 
+            ctx = canvas.getContext('2d');
+
+            canvasBuffer = document.createElement('canvas');
+            canvasBuffer.width = canvas.width;
+            canvasBuffer.height = canvas.height;
+            burrerCtx = canvasBuffer.getContext('2d')
+
+                
+            
+        }
+    </script>
+</body>
+</html>
